@@ -51,4 +51,25 @@ func TestConvertRomanToInt(t *testing.T) {
 			}
 		}
 	})
+
+	t.Run("Subtract", func(t *testing.T) {
+		tests := []struct {
+			input    string
+			expected int
+		}{
+			{input: "IV", expected: 4},
+			{input: "IX", expected: 9},
+			{input: "XL", expected: 40},
+			{input: "XC", expected: 90},
+			{input: "CD", expected: 400},
+			{input: "CM", expected: 900},
+		}
+
+		for _, test := range tests {
+			actual := numeral.RomanToInt(test.input)
+			if actual != test.expected {
+				t.Errorf("expected %s to be %d, but got %d", test.input, test.expected, actual)
+			}
+		}
+	})
 }

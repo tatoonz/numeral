@@ -13,8 +13,16 @@ var romanLetterInt = map[rune]int{
 // RomanToInt converts roman numerals to integer
 func RomanToInt(input string) int {
 	result := 0
+	prevX := 0
 	for _, letter := range input {
-		result += romanLetterInt[letter]
+		x := romanLetterInt[letter]
+
+		if prevX < x {
+			result = (result - prevX) + (x - prevX)
+		} else {
+			result += romanLetterInt[letter]
+		}
+		prevX = x
 	}
 
 	return result
