@@ -12,5 +12,10 @@ var romanLetterInt = map[string]int{
 
 // RomanToInt converts roman numerals to integer
 func RomanToInt(input string) int {
-	return romanLetterInt[input]
+	result := 0
+	for _, letter := range input {
+		result += romanLetterInt[string(letter)]
+	}
+
+	return result
 }
