@@ -6,7 +6,7 @@ import (
 	"github.com/tatoonz/numeral"
 )
 
-func TestConvertRomanToInt(t *testing.T) {
+func TestRomanToInt(t *testing.T) {
 	t.Run("OneLetter", func(t *testing.T) {
 		tests := []struct {
 			input    string
