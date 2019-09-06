@@ -72,4 +72,32 @@ func TestConvertRomanToInt(t *testing.T) {
 			}
 		}
 	})
+
+	t.Run("ComplexNumerals", func(t *testing.T) {
+		tests := []struct {
+			input    string
+			expected int
+		}{
+			{input: "MMMCCXC", expected: 3290},
+			{input: "CXXIII", expected: 123},
+			{input: "DCCLXXVII", expected: 777},
+			{input: "CMXLIX", expected: 949},
+			{input: "MM", expected: 2000},
+			{input: "LXXXVII", expected: 87},
+			{input: "XLIII", expected: 43},
+			{input: "XXII", expected: 22},
+			{input: "DCCVII", expected: 707},
+			{input: "LXIX", expected: 69},
+			{input: "XCIX", expected: 99},
+			{input: "MDLXXXII", expected: 1582},
+			{input: "MMXIX", expected: 2019},
+		}
+
+		for _, test := range tests {
+			actual := numeral.RomanToInt(test.input)
+			if actual != test.expected {
+				t.Errorf("expected %s to be %d, but got %d", test.input, test.expected, actual)
+			}
+		}
+	})
 }
