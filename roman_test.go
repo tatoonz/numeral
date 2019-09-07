@@ -1,6 +1,7 @@
 package numeral_test
 
 import (
+	"fmt"
 	"testing"
 
 	"github.com/tatoonz/numeral"
@@ -100,4 +101,16 @@ func TestRomanToInt(t *testing.T) {
 			}
 		}
 	})
+}
+
+func ExampleRomanToInt() {
+	fmt.Println(numeral.RomanToInt("I"))
+	fmt.Println(numeral.RomanToInt("IV"))
+	fmt.Println(numeral.RomanToInt("XI"))
+	fmt.Println(numeral.RomanToInt("MMXIX"))
+	// output:
+	// 1
+	// 4
+	// 11
+	// 2019
 }
